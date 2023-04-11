@@ -45,9 +45,14 @@ public class Contacts {
         switch (input.nextInt()){
 
             case 1:
+                System.out.printf("%-10s | %-15s%n", "Name", "Phone number");
+                System.out.println("-----------------------------------");
+
                 contactInfo = Files.readAllLines(srcToFile);
                 for(String info: contactInfo){
-                    System.out.printf("%n %s %n", info);
+                    String[] tokens = info.split(",");
+                    System.out.printf("%-10s | %-15s%n", tokens[0].trim(), tokens[1].trim());
+
                 }
                 break;
             case 2:
@@ -76,23 +81,10 @@ public class Contacts {
                         Files.write(srcToFile, contactInfo);
                     }
                 }
-
                 System.out.println(newContact + " has been removed from your contacts.");
 
                 break;
-
-
         }
-
-
-
-
-
-
-
-
-
-
 
 
 //CONFIRM IF USER WANTS TO CONTINUE OR EXIT
@@ -102,13 +94,6 @@ public class Contacts {
                 System.out.println("Exiting program. See you next time!");
             }
         } while (wantToContinue);
-
-
-
-
-
-
-
     }
 
 
