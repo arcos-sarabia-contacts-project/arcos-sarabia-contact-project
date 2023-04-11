@@ -50,15 +50,32 @@ public class Contacts {
 
                 contactInfo = Files.readAllLines(srcToFile);
                 for(String info: contactInfo){
-                    String[] tokens = info.split(",");
-                    System.out.printf("%-10s | %-15s%n", tokens[0].trim(), tokens[1].trim());
+                    String[] splitInfo = info.split(",");
+                    String nameInfo = splitInfo[0].trim();
+                    String numInfo = splitInfo[1].trim();
+
+                    String contactDash =
+                            numInfo.substring(0, 3) + "-" + numInfo.substring(3, 6) + "-" + numInfo.substring(6);
+                    System.out.printf("%-10s | %-15s%n", nameInfo, contactDash);
 
                 }
                 break;
             case 2:
+                contactInfo = Files.readAllLines(srcToFile);
                 System.out.println("Please enter Contact Name and Phone Number separated by a comma.");
                 String newContact = stringInput.nextLine();
+                if (contactInfo.contains(newContact)){
+                    System.out.println(newContact + " already exists in contacts.");
+                    System.out.println("Are you sure you want to add again?");
+
+                    Scanner sca = new Scanner(System.in);
+                    Boolean yesOrNo = sca.nextLine().equalsIgnoreCase("yes");
+                    if (!yesOrNo){
+                        System.out.println("Contact was not added.");
+                    }
+                }
                 Files.write(srcToFile, Arrays.asList(newContact), StandardOpenOption.APPEND);
+                System.out.println("New contact is added: " + newContact);
                 break;
 
             case 3:
