@@ -5,8 +5,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.*;
 
-import static java.nio.file.Files.createFile;
-
 public class Contacts {
 
 
@@ -14,15 +12,6 @@ public class Contacts {
 
         String contactFile = "contacts.txt";
         Path srcToFile = Paths.get("src", contactFile);
-
-
-//        List<String> contactList = Arrays.asList("");
-//        Files.write(srcToFile, contactList, StandardOpenOption.APPEND);
-//
-//
-//        Files.write(srcToFile, Arrays.asList("Lillian, 2108453477"));
-//        Files.write(srcToFile, Arrays.asList("Genesis, 2106876798"), StandardOpenOption.APPEND);
-
 
 
         Scanner sc = new Scanner(System.in);
@@ -112,8 +101,5 @@ public class Contacts {
             }
         } while (wantToContinue);
     }
-
-
-
 
 }
