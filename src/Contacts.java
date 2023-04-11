@@ -90,6 +90,10 @@ public class Contacts {
                 System.out.println(newContact + " has been removed from your contacts.");
 
                 break;
+            case 5:
+                System.out.println("Contacts App closed. Thank you and see you later again!");
+                System.exit(0);
+                break;
         }
 
 
