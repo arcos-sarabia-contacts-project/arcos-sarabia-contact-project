@@ -72,7 +72,7 @@ public class Contacts {
                 newContact = stringInput.nextLine();
                 for(String info: contactInfo) {
                     if (info.contains(newContact)){
-                        contactInfo.removeAll(Arrays.asList(info));
+                        contactInfo.remove(Arrays.asList(info));
                         System.out.println(info + " has been removed from your contacts.");
 
                     }
