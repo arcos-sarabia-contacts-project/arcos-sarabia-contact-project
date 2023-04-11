@@ -5,3 +5,5 @@
 *.iml
 # Compiled output
 *.class
+
+out
