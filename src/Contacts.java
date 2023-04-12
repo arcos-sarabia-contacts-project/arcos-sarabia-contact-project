@@ -30,6 +30,7 @@ public class Contacts {
 
             List<String> contactInfo;
             Scanner stringInput = new Scanner(System.in);
+            String inputString = String.valueOf(stringInput);
 
         switch (input.nextInt()){
 
@@ -71,9 +72,15 @@ public class Contacts {
                 contactInfo = Files.readAllLines(srcToFile);
                 System.out.println("Please enter name of contact you wish to search.");
                 newContact = stringInput.nextLine();
+
                 for(String info: contactInfo) {
-                    if (info.contains(newContact)){
-                        System.out.println(info);
+                    String[] splitInfo = info.split(",");
+                    String nameInfo = splitInfo[0].trim();
+                    String numInfo = splitInfo[1].trim();
+                    if (info.toLowerCase().contains(newContact.toLowerCase())){
+                        String contactDash =
+                                numInfo.substring(0, 3) + "-" + numInfo.substring(3, 6) + "-" + numInfo.substring(6);
+                        System.out.printf("%-10s | %-15s%n", nameInfo, contactDash);
                     }
                 }
                 break;
