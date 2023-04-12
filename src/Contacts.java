@@ -15,7 +15,7 @@ public class Contacts {
 
 
         Scanner sc = new Scanner(System.in);
-        boolean wantToContinue = true;
+        boolean wantToContinue;
 
         do {
             Scanner input = new Scanner(System.in);
@@ -30,7 +30,6 @@ public class Contacts {
 
             List<String> contactInfo;
             Scanner stringInput = new Scanner(System.in);
-            String inputString = String.valueOf(stringInput);
 
         switch (input.nextInt()){
 
